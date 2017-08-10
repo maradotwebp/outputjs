@@ -1,8 +1,11 @@
 # outputjs
 
+[![npm version](https://badge.fury.io/js/outputjs.svg)](https://badge.fury.io/js/outputjs)
+![Dependencies](https://david-dm.org/froehlichA/outputjs.svg)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/froehlichA/outputjs/master/LICENSE)
 [![Greenkeeper badge](https://badges.greenkeeper.io/froehlichA/outputjs.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.org/froehlichA/outputjs.svg?branch=master)](https://travis-ci.org/froehlichA/outputjs)
-![Dependencies](https://david-dm.org/froehlichA/outputjs.svg)
+[![codecov](https://codecov.io/gh/froehlichA/outputjs/branch/master/graph/badge.svg)](https://codecov.io/gh/froehlichA/outputjs)
 
 :pencil: A simplistic node.js logger that can be configured to the max.
 

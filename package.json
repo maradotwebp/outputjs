@@ -4,10 +4,8 @@
   "description": "A simplistic logger and output manager.",
   "main": "index.js",
   "scripts": {
-    "preinstall": "npm install -g greenkeeper-lockfile@1 mocha",
-    "pretest": "greenkeeper-lockfile-update",
+    "preinstall": "npm install -g mocha",
     "test": "mocha",
-    "posttest": "greenkeeper-lockfile-upload",
     "example": "node example.js"
   },
   "author": "froehlichA",

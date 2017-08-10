@@ -16,5 +16,19 @@
   },
   "devDependencies": {
     "unit.js": "^2.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/froehlichA/outputjs.git"
+  },
+  "keywords": [
+    "logger",
+    "logging",
+    "output",
+    "outputjs"
+  ],
+  "bugs": {
+    "url": "https://github.com/froehlichA/outputjs/issues"
+  },
+  "homepage": "https://github.com/froehlichA/outputjs#readme"
 }

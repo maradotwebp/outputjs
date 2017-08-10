@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "pretest": "npm i -g mocha",
-    "test": "mocha"
+    "test": "mocha",
+    "example": "node example.js"
   },
   "author": "froehlichA",
   "license": "MIT",

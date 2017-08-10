@@ -1,0 +1,19 @@
+{
+  "name": "outputjs",
+  "version": "1.0.0",
+  "description": "A simplistic logger and output manager.",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "npm i -g mocha",
+    "test": "mocha"
+  },
+  "author": "froehlichA",
+  "license": "MIT",
+  "dependencies": {
+    "caller-lookup": "^0.2.0",
+    "chalk": "^2.1.0"
+  },
+  "devDependencies": {
+    "unit.js": "^2.0.0"
+  }
+}

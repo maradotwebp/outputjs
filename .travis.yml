@@ -4,8 +4,10 @@ node_js:
   - "7"
   - "6"
 before_script:
-  - npm install -g codecov istanbul mocha
+  - npm install -g codecov istanbul mocha greenkeeper-lockfile@1
+  - greenkeeper-lockfile-update
 script:
   - istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec
   - codecov
-  
+after_script:
+  - greenkeeper-lockfile-upload

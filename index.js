@@ -9,11 +9,13 @@ function Log(options = {}) {
 	//Variable declaration - Taking from options, else default
 	const prePath = path.resolve(__dirname, './index.js');
 	const callArr = caller(prePath).split('\\');
+
 	const name = options.name || callArr[callArr.length-1];
-	const prefix = options.prefix || '->';
-	const debugPrefix = options.debugPrefix || 'DEBUG:';
-	const color = options.format || getColorFromArray();
+	const color = options.color || getColorFromArray();
 	const padding = options.padding || 10;
+	const prefix = options.prefix || '->';
+	const debug = options.debug || false;
+	const debugPrefix = options.debugPrefix || 'DEBUG:';
 	const filePath = options.file || undefined;
 
 	//Only changeable in code
@@ -69,7 +71,7 @@ function Log(options = {}) {
 	this.error = (text) => log(text, errorColor, '[ERROR]');
 	this.debug = (text) => {
 		//Enables debugging output only with debug option.
-		if(options && options.debug) {
+		if(debug) {
 			log(debugPrefix+' '+text, debugColor, '[DEBUG]');
 		}
 	};

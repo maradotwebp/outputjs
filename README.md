@@ -2,6 +2,7 @@
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/froehlichA/outputjs.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.org/froehlichA/outputjs.svg?branch=master)](https://travis-ci.org/froehlichA/outputjs)
+![Dependencies](https://david-dm.org/froehlichA/outputjs.svg)
 
 :pencil: A simplistic node.js logger that can be configured to the max.
 

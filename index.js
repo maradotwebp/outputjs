@@ -10,7 +10,7 @@ function Log(options = {}) {
 	const prePath = path.resolve(__dirname, './index.js');
 	const callArr = caller(prePath).split('\\');
 
-	const name = options.name || callArr[callArr.length-1];
+	const name = options.name || callArr[callArr.length - 1];
 	const color = options.color || getColorFromArray();
 	const padding = options.padding || 10;
 	const prefix = options.prefix || '->';
@@ -30,8 +30,8 @@ function Log(options = {}) {
 	// If more than six, repeat the previous pattern.
 	function getColorFromArray() {
 		const colorName = colors[colorIndex];
-		const index = colorIndex+1;
-		if(colors[index]) colorIndex++;
+		const index = colorIndex + 1;
+		if (colors[index]) colorIndex++;
 		else colorIndex = 0;
 		return colorName;
 	}
@@ -39,30 +39,30 @@ function Log(options = {}) {
 	// Wraps the name of the logger, colors it, and right-pads it.
 	function padName(padOptions) {
 		let len = name.length + 3; // I don't know why 3 works
-		if(padOptions.color) { var pName = color('['+name+']'); }
-		else var pName = '['+name+']';
-		while(len < padding) { pName += ' '; ++len; }
+		if (padOptions.color) { var pName = color('[' + name + ']'); }
+		else var pName = '[' + name + ']';
+		while (len < padding) { pName += ' '; ++len; }
 		return pName;
 	}
 
 	// Logs either to console or file.
 	function log(text, consoleOut, fileOut) {
-		if(filePath) logToFile(text, fileOut);
+		if (filePath) logToFile(text, fileOut);
 		else logToConsole(text, consoleOut);
 	}
 
 	// Logs to console.
 	function logToConsole(text, consoleOut) {
-		console.log(' '+padName({ color: true })+' '+prefix+' '+consoleOut(text));
+		console.log(' ' + padName({ color: true }) + ' ' + prefix + ' ' + consoleOut(text));
 	}
 
 	// Logs to file.
 	function logToFile(text, fileOut) {
-		const output = padName({ color: false })+' '+fileOut+' '+prefix+' '+text+'\r\n';
+		const output = padName({ color: false }) + ' ' + fileOut + ' ' + prefix + ' ' + text + '\r\n';
 		fs.appendFile(filePath, output, (err) => {
-		  if (err) throw err;
+			if (err) throw err;
 		});
-		
+
 	}
 
 	this.info = (text) => log(text, infoColor, '[INFO]');
@@ -71,8 +71,8 @@ function Log(options = {}) {
 	this.error = (text) => log(text, errorColor, '[ERROR]');
 	this.debug = (text) => {
 		//Enables debugging output only with debug option.
-		if(debug) {
-			log(debugPrefix+' '+text, debugColor, '[DEBUG]');
+		if (debug) {
+			log(debugPrefix + ' ' + text, debugColor, '[DEBUG]');
 		}
 	};
 	return this;

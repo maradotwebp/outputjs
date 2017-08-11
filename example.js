@@ -1,7 +1,7 @@
 var logger = require('./index.js');
-var server = new logger({name: 'server'});
-var example = new logger({name: 'example'});
-var design = new logger({name: 'design'});
+var server = new logger({ name: 'server' });
+var example = new logger({ name: 'example' });
+var design = new logger({ name: 'design' });
 server.info('Server starting...');
 server.success('Success! Server started.');
 example.debug('Initializing socket with { foo: "bar" }.'); //Won't be displayed

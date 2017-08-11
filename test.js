@@ -7,83 +7,83 @@ const logger = require('./index.js');
 const testColor = { name: 'Cyan', color: chalk.bgCyan };
 const testFile = 'outputTest.txt'
 
-beforeEach(function() {
-    test.spy(console, 'log');
-    test.spy(fs, 'appendFile');
+beforeEach(function () {
+	test.spy(console, 'log');
+	test.spy(fs, 'appendFile');
 });
 
 afterEach(function () {
 	console.log.restore();
 	fs.appendFile.restore();
-	if(fs.existsSync(testFile)) fs.unlinkSync(testFile);
+	if (fs.existsSync(testFile)) fs.unlinkSync(testFile);
 });
 
-describe('Default Console Logger', function() {
+describe('Default Console Logger', function () {
 	const logger = getLogger();
 	const log = getLogObject(logger);
 	testForOutput(log);
 })
-describe('Custom Console Loggers', function() {
-	describe('Logger with custom name', function() {
+describe('Custom Console Loggers', function () {
+	describe('Logger with custom name', function () {
 		const logger = getLogger();
-		const log = getLogObject(logger, { name: 'CustomNaming'});
+		const log = getLogObject(logger, { name: 'CustomNaming' });
 		testForOutput(log);
 	})
-	describe('Logger with custom padding', function() {
+	describe('Logger with custom padding', function () {
 		const logger = getLogger();
-		const log = getLogObject(logger, { padding: 20});
+		const log = getLogObject(logger, { padding: 20 });
 		testForOutput(log);
 	})
-	describe('Logger with custom color ('+testColor.name+')', function() {
+	describe('Logger with custom color (' + testColor.name + ')', function () {
 		const logger = getLogger();
-		const log = getLogObject(logger, { format: testColor.color});
+		const log = getLogObject(logger, { format: testColor.color });
 		testForOutput(log);
 	})
-	describe('Logger with custom prefix', function() {
+	describe('Logger with custom prefix', function () {
 		const logger = getLogger();
-		const log = getLogObject(logger, { prefix: '-|->>'});
+		const log = getLogObject(logger, { prefix: '-|->>' });
 		testForOutput(log);
 	})
-	describe('Logger with debug enabled', function() {
+	describe('Logger with debug enabled', function () {
 		const logger = getLogger();
-		const log = getLogObject(logger, { debug: true});
+		const log = getLogObject(logger, { debug: true });
 		testForOutputWithDebug(log);
 	})
-	describe('Logger with debug & debugging prefix enabled', function() {
+	describe('Logger with debug & debugging prefix enabled', function () {
 		const logger = getLogger();
-		const log = getLogObject(logger, { debug: true, debugPrefix: 'DD:'});
+		const log = getLogObject(logger, { debug: true, debugPrefix: 'DD:' });
 		testForOutputWithDebug(log);
 	})
 })
-describe('Default File Logger', function() {
+describe('Default File Logger', function () {
 	const logger = getLogger();
-	const log = getLogObject(logger, { file: testFile});
+	const log = getLogObject(logger, { file: testFile });
 	testForOutputToFile(log);
 });
 describe('Custom File Loggers', function () {
-	describe('Logger with custom name', function() {
+	describe('Logger with custom name', function () {
 		const logger = getLogger();
-		const log = getLogObject(logger, { file: testFile, name: 'CustomNaming'});
+		const log = getLogObject(logger, { file: testFile, name: 'CustomNaming' });
 		testForOutputToFile(log);
 	})
-	describe('Logger with custom padding', function() {
+	describe('Logger with custom padding', function () {
 		const logger = getLogger();
-		const log = getLogObject(logger, { file: testFile, padding: 20});
+		const log = getLogObject(logger, { file: testFile, padding: 20 });
 		testForOutputToFile(log);
 	})
-	describe('Logger with custom prefix', function() {
+	describe('Logger with custom prefix', function () {
 		const logger = getLogger();
-		const log = getLogObject(logger, { file: testFile, prefix: '-|->>'});
+		const log = getLogObject(logger, { file: testFile, prefix: '-|->>' });
 		testForOutputToFile(log);
 	})
-	describe('Logger with debug enabled', function() {
+	describe('Logger with debug enabled', function () {
 		const logger = getLogger();
-		const log = getLogObject(logger, { file: testFile, debug: true});
+		const log = getLogObject(logger, { file: testFile, debug: true });
 		testForOutputToFileWithDebug(log);
 	})
-	describe('Logger with debug & debugging prefix enabled', function() {
+	describe('Logger with debug & debugging prefix enabled', function () {
 		const logger = getLogger();
-		const log = getLogObject(logger, { file: testFile, debug: true, debugPrefix: 'DD:'});
+		const log = getLogObject(logger, { file: testFile, debug: true, debugPrefix: 'DD:' });
 		testForOutputToFileWithDebug(log);
 	})
 })
@@ -104,7 +104,7 @@ function getLogObject(logger, options) {
 }
 
 function testForOutput(log) {
-	it('should output when calling info, success, warn, and error function', function() {
+	it('should output when calling info, success, warn, and error function', function () {
 		log.info("Hey, a unit test!");
 		log.success("Hey, a unit test!");
 		log.warn("Hey, a unit test!");
@@ -114,7 +114,7 @@ function testForOutput(log) {
 }
 
 function testForOutputWithDebug(log) {
-	it('should output when calling debug, info, success, warn, and error function', function() {
+	it('should output when calling debug, info, success, warn, and error function', function () {
 		log.debug("Hey, a unit test!");
 		log.info("Hey, a unit test!");
 		log.success("Hey, a unit test!");
@@ -125,7 +125,7 @@ function testForOutputWithDebug(log) {
 }
 
 function testForOutputToFile(log) {
-	it('should output info, success, warn, and error to the file', function() {
+	it('should output info, success, warn, and error to the file', function () {
 		log.info("Hey, a unit test!");
 		log.success("Hey, a unit test!");
 		log.warn("Hey, a unit test!");
@@ -135,7 +135,7 @@ function testForOutputToFile(log) {
 }
 
 function testForOutputToFileWithDebug(log) {
-	it('should output debug, info, success, warn, and error to the file', function() {
+	it('should output debug, info, success, warn, and error to the file', function () {
 		log.debug("Hey, a unit test!");
 		log.info("Hey, a unit test!");
 		log.success("Hey, a unit test!");
